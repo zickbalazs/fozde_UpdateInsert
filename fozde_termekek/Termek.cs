@@ -16,6 +16,7 @@ namespace fozde_termekek
         public List<TermekKiszereles> TermekKiszerelesek;
         public Termek(int id, string nev, int evjarat, double erosseg, int literar)
         {
+            TermekKiszerelesek = new List<TermekKiszereles>();
             ID = id;
             this.nev = nev;
             this.evjarat = evjarat;

@@ -50,8 +50,11 @@ namespace fozde_termekek
             string name = modName.Text;
             double strength = Convert.ToDouble(modStrength.Text);
             int literAr = Convert.ToInt32(modLitres.Text);
-
-            dbUpdate.Termekek(new Termek(ID, name, year, strength, literAr));
+            Termek modT = new Termek(ID, name, year, strength, literAr);
+            dbUpdate.Termekek(
+                modT,
+                termekkiszerelesek.Find(t=>t.mertekID==modT.GetKiszerelesek(termekkiszerelesek,kiszerelesek)[comboBox2.SelectedIndex].ID && t.termekID==modT.ID),
+                kiszerelesek[comboBox3.SelectedIndex]);
         }
 
         private void modSizing_SelectedIndexChanged(object sender, EventArgs e)
