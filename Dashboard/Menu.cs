@@ -16,14 +16,32 @@ namespace Dashboard
 {
     public partial class Menu : Form
     {
-        public Menu()
+        private User user;
+        public Menu(User user)
         {
             InitializeComponent();
+            Text = $"Üdv, {user.Name}";
+            this.user = user;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             new kiszereles_torlo.Form1().Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            new Rendeles.Form1().Show();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            new fozde_termekek.Form1().Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            new Users(user).Show();
         }
     }
 }

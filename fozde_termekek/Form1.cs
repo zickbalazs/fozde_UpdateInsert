@@ -51,9 +51,12 @@ namespace fozde_termekek
             double strength = Convert.ToDouble(modStrength.Text);
             int literAr = Convert.ToInt32(modLitres.Text);
             Termek modT = new Termek(ID, name, year, strength, literAr);
+            List<Kiszereles> _kiszerelesek = modT.GetKiszerelesek(termekkiszerelesek, kiszerelesek);
             dbUpdate.Termekek(
                 modT,
-                termekkiszerelesek.Find(t=>t.mertekID==modT.GetKiszerelesek(termekkiszerelesek,kiszerelesek)[comboBox2.SelectedIndex].ID && t.termekID==modT.ID),
+                termekkiszerelesek.Find(t=>
+                    t.mertekID == _kiszerelesek[modSizing.SelectedIndex].ID &&
+                    t.termekID==modT.ID),
                 kiszerelesek[comboBox3.SelectedIndex]);
         }
 
@@ -70,7 +73,6 @@ namespace fozde_termekek
             modLitres.Text = termekek[comboBox2.SelectedIndex].literAr.ToString();
             modStrength.Text = termekek[comboBox2.SelectedIndex].erosseg.ToString();
             modYear.Text = termekek[comboBox2.SelectedIndex].evjarat.ToString();
-            
             selectedKiszerelesek = termekek[comboBox2.SelectedIndex].GetKiszerelesek(termekkiszerelesek, kiszerelesek);
             selectedKiszerelesek.ForEach(t => { modSizing.Items.Add(t.Nev); } );
         }

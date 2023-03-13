@@ -16,5 +16,14 @@ namespace Dashboard
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (DB.Login(usernameTbx.Text, passTbx.Text))
+            {
+                new Menu(DB.GetUser(usernameTbx.Text, passTbx.Text)).Show();
+            }
+            else MessageBox.Show("Rossz adatok!");
+        }
     }
 }

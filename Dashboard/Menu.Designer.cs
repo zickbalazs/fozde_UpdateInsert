@@ -55,6 +55,7 @@ namespace Dashboard
             this.button2.TabIndex = 0;
             this.button2.Text = "Felhasználók kezelése";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -65,6 +66,7 @@ namespace Dashboard
             this.button3.TabIndex = 0;
             this.button3.Text = "Rendelés";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button4
             // 
@@ -75,6 +77,7 @@ namespace Dashboard
             this.button4.TabIndex = 0;
             this.button4.Text = "Termékek kezelése";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // Menu
             // 
