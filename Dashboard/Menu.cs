@@ -43,5 +43,10 @@ namespace Dashboard
         {
             new Users(user).Show();
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            new fozde_koltsegek.Form1().Show();
+        }
     }
 }

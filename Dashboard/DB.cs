@@ -107,5 +107,43 @@ namespace Dashboard
                 return new User(0,"","",2);
             }
         }
+        public static bool ModUser(User user)
+        {
+            MySqlConnection conn = new MySqlConnection(new MySqlConnectionStringBuilder()
+            {
+                Database = "fozde",
+                UserID = "root",
+                Password = "",
+                Server = "localhost"
+            }.ToString());
+            MySqlCommand cmd = new MySqlCommand($"update bejelentkezes set nev='{user.Name}', jelszo='{user.password}', jogosultsag={user.Permission} where ID={user.getID()}", conn);
+            try
+            {
+                conn.Open();
+                cmd.ExecuteNonQuery();
+                conn.Close();
+                return true;
+            }            
+            catch (MySqlException e) { return false; }
+        }
+        public static bool DeleteUser(int id)
+        {
+            MySqlConnection conn = new MySqlConnection(new MySqlConnectionStringBuilder()
+            {
+                Database = "fozde",
+                UserID = "root",
+                Password = "",
+                Server = "localhost"
+            }.ToString());
+            MySqlCommand cmd = new MySqlCommand($"delete from bejelentkezes where ID={id}", conn);
+            try
+            {
+                conn.Open();
+                cmd.ExecuteNonQuery();
+                conn.Close();
+                return true;
+            }
+            catch (MySqlException e) { return false; }
+        }
     }
 }

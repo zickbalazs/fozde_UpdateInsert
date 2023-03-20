@@ -47,6 +47,7 @@ namespace fozde_termekek
         private void button2_Click(object sender, EventArgs e)
         {
             int ID = termekek[comboBox2.SelectedIndex].ID, year = Convert.ToInt32(modYear.Text);
+
             string name = modName.Text;
             double strength = Convert.ToDouble(modStrength.Text);
             int literAr = Convert.ToInt32(modLitres.Text);

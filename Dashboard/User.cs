@@ -10,7 +10,7 @@ namespace Dashboard
     {
         private int id;
         public string Name;
-        private string password;
+        public string password;
         public int Permission;
         public User(int id, string name, string password, int perm)
         {
@@ -19,5 +19,6 @@ namespace Dashboard
             this.password = password;
             Permission = perm;
         }
+        public int getID() => id;
     }
 }
