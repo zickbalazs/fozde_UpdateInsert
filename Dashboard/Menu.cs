@@ -7,9 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Rendeles;
-using fozde_koltsegek;
 using fozde_termekek;
+using fozde_koltsegek;
 using kiszereles_torlo;
 
 namespace Dashboard
@@ -22,6 +21,17 @@ namespace Dashboard
             InitializeComponent();
             Text = $"Üdv, {user.Name}";
             this.user = user;
+            if (user.Permission == 1)
+            {
+                button2.Visible = false;
+            }
+            if (user.Permission == 2)
+            {
+                button2.Visible = false;
+                button4.Visible = false;
+                button1.Visible = false;
+                button5.Visible = false;
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
